@@ -1,0 +1,71 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px
+  }
+  .btn-search:hover{
+      background-color: #fe424d;
+    color: white;
+  }
+  .search-input{
+     border-radius: 25px;
+     padding: 0.5rem 3rem 0.5rem 3rem; 
+  }
+</style>
+
+<nav class="navbar sm:navbar-expand bg-body-light fg-2 border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+    <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" aria-hidden="true"></span>
+    </button>
+    <dialog class="drawer drawer-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarNavLabel">
+      <div class="drawer-header">
+        <h5 class="drawer-title" id="navbarNavLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+      </div>
+      
+<div class="drawer-body">
+    <div class="navbar-nav search-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+    </div>
+      <div class="navbar-nav search-nav ms-auto">
+        <form class="d-flex search-form" role="search" action="/listings" method="GET">
+            <input
+                class="form-control me-2 search-input"
+                type="search"
+                name="q"
+                placeholder="Search destinations"
+                aria-label="Search"
+            />
+            <button class="btn-outline btn-search" type="submit">
+                Search
+            </button>
+        </form>
+    </div>
+
+        <!-- Authentication links after Add New Listing -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="/listings/new">Airbnb your home </a>
+        </li> 
+            <% if(!currUser) {%>
+              <li class="nav-item">
+                  <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/login"><b>Log In</b></a>
+              </li>
+            <%}%> 
+            <% if(currUser) {%>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Log Out</b></a>
+        </li>
+           <%}%> 
+    </ul>
+</div>
+
+    </dialog>
+  </div>
+</nav>
